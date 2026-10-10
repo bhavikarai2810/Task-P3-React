@@ -1,0 +1,134 @@
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #333;
+  background: #fff;
+}
+a { color: inherit; }
+.navigation {
+  width: 100%;
+  padding: 12px max(8%, calc((100% - 1000px) / 2));
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.navigation a {
+  color: #333;
+  text-decoration: none;
+  font-size: 15px;
+  transition: color .25s ease;
+}
+.navigation a:hover, .footer-links a:hover { color: #4f9b9b; }
+.banner { position: relative; width: 100%; max-width: 1000px; height: 300px; margin: 0 auto; overflow: hidden; }
+.banner > img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.banner::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 70px; background: rgba(0,0,0,.45); }
+.banner-text {
+  position: absolute; z-index: 1; bottom: 0; left: 0; width: 100%;
+  padding: 18px 0; background: rgba(80,80,80,.75); color: #fff;
+  text-align: center; font-size: 30px; font-weight: bold;
+  opacity: 0; visibility: hidden; transition: opacity .4s ease, visibility .4s ease;
+}
+.banner:hover .banner-text { opacity: 1; visibility: visible; }
+.about-section { max-width: 1000px; margin: 0 auto; padding: 30px 30px 20px; text-align: center; }
+.profile-photo { width: 100px; height: 100px; object-fit: cover; object-position: center; border-radius: 50%; display: block; margin: 0 auto 18px; }
+.about-section p { max-width: 750px; margin: 0 auto; line-height: 1.7; font-size: 15px; color: #397f7f; }
+hr { border: 0; border-top: 1px solid #ddd; margin: 25px auto; }
+.section-divider { max-width: 1000px; }
+.work-section { max-width: 1000px; margin: 0 auto; padding: 10px 30px 30px; }
+.work-section h2, .gallery-section h2 { text-align: center; color: #428989; font-weight: normal; margin: 10px 0 25px; }
+.projects { width: 100%; }
+.project { display: flex; align-items: center; gap: 35px; margin: 0 auto 30px; padding: 10px 0; max-width: 850px; }
+.project > img { width: 250px; height: 150px; object-fit: contain; display: block; }
+.project-info { flex: 1; }
+.project-info h3 { margin: 0 0 10px; font-size: 20px; color: #222; }
+.project-info p { margin: 0; font-size: 14px; line-height: 1.6; color: #444; }
+.gallery-section { max-width: 1000px; margin: 0 auto; padding: 10px 30px 30px; }
+.gallery-section h2 { font-weight: bold; margin-bottom: 10px; }
+.gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 10px; }
+.gallery img { width: 100%; height: 130px; object-fit: cover; display: block; }
+.site-footer { margin-top: 15px; border-top: 1px solid #e2e2e2; background: #f8fbfb; color: #444; }
+.footer-main { max-width: 1000px; margin: 0 auto; padding: 32px 30px 28px; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 35px; }
+.footer-main h2, .footer-main h3 { color: #397f7f; margin: 0 0 14px; }
+.footer-main h2 { font-size: 21px; }
+.footer-main h3 { font-size: 17px; }
+.footer-about p { font-size: 14px; line-height: 1.6; margin: 0 0 12px; }
+.email-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; text-decoration: none; color: #397f7f; }
+.footer-links { display: flex; flex-direction: column; align-items: flex-start; gap: 9px; }
+.footer-links a { text-decoration: none; font-size: 14px; }
+.social-icons { display: flex; gap: 12px; }
+.social-icons a { width: 36px; height: 36px; border: 1px solid #b7d2d2; color: #397f7f; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; transition: background .2s, color .2s; }
+.social-icons a:hover { background: #397f7f; color: white; }
+.social-icons svg { width: 17px; height: 17px; }
+.footer-bottom { border-top: 1px solid #e3eeee; text-align: center; padding: 13px 20px; font-size: 12px; color: #777; }
+@media (max-width: 768px) {
+  .navigation { justify-content: center; padding: 12px; gap: 20px; }
+  .banner { height: 220px; }
+  .banner-text { font-size: 22px; }
+  .about-section, .work-section, .gallery-section { padding-left: 20px; padding-right: 20px; }
+  .project { flex-direction: column; text-align: center; gap: 15px; }
+  .project > img { width: 260px; height: 150px; }
+  .project-info { width: 100%; }
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .footer-main { grid-template-columns: 1fr 1fr; }
+  .footer-about { grid-column: 1 / -1; }
+}
+@media (max-width: 480px) {
+  .banner { height: 180px; }
+  .banner-text { font-size: 18px; padding: 14px 0; }
+  .gallery { grid-template-columns: 1fr; }
+  .gallery img { height: 180px; }
+  .profile-photo { width: 90px; height: 90px; }
+  .footer-main { grid-template-columns: 1fr; gap: 25px; }
+  .footer-about { grid-column: auto; }
+}
+
+
+/* Task P4 navigation and authentication pages */
+.p4-navigation { font-family: Arial, Helvetica, sans-serif; min-height: 42px; padding: 6px max(3%, calc((100% - 1120px) / 2)); gap: 0; background: #f1f1f1; border-bottom: 1px solid #d8d8d8; }
+.p4-navigation .brand { font-size: 12px; font-weight: 800; letter-spacing: -.3px; color: #222; background: #e4e4e4; padding: 5px 7px; white-space: nowrap; }
+.p4-navigation .search-wrap { margin-left: 18px; display: flex; align-items: center; gap: 6px; flex: 1; max-width: 560px; height: 27px; border: 1px solid #ccc; border-radius: 2px; background: white; padding: 0 7px; color: #999; }
+.p4-navigation .search-wrap input { border: 0; outline: 0; width: 100%; min-width: 0; font: 12px Arial, sans-serif; background: transparent; }
+.p4-navigation .nav-placeholder, .p4-navigation .nav-login { border: 0; padding: 7px 12px; background: #e8e8e8; color: #222; font: 12px Arial, sans-serif; text-decoration: none; cursor: pointer; }
+.p4-navigation .nav-placeholder:disabled { opacity: 1; }
+.p4-navigation .nav-login { font-weight: 600; }
+.auth-page { min-height: 410px; padding: 45px 20px 55px; display: flex; justify-content: center; align-items: flex-start; font-family: Arial, Helvetica, sans-serif; background: #fff; }
+.auth-card { border: 1px solid #c9d7ff; width: 100%; max-width: 390px; padding: 26px 30px 24px; background: #fff; }
+.auth-card h1 { margin: 0 0 25px; font-size: 19px; line-height: 1.35; text-align: center; font-weight: 400; color: #3478ff; }
+.auth-card form { display: flex; flex-direction: column; }
+.auth-card label { font-size: 12px; color: #222; margin: 0 0 6px; }
+.auth-card input { width: 100%; height: 27px; margin: 0 0 17px; padding: 5px 8px; border: 1px solid #d8d8d8; border-radius: 0; background: white; font: 13px Arial, sans-serif; }
+.auth-card input:focus { outline: 1px solid #3478ff; border-color: #3478ff; }
+.primary-button { border: 0; width: 100%; min-height: 32px; margin-top: 2px; background: #3978ff; color: white; font: 13px Arial, sans-serif; cursor: pointer; }
+.primary-button:hover { background: #2868ec; }
+.primary-button:disabled { opacity: .7; cursor: wait; }
+.auth-switch { margin: 18px 0 0; text-align: center; font-size: 12px; color: #555; }
+.auth-switch a { color: #3478ff; }
+.signup-page { padding-top: 30px; }
+.signup-card { max-width: 560px; padding: 22px 32px 24px; }
+.signup-card h1 { margin-bottom: 22px; }
+.signup-card form { display: grid; grid-template-columns: 145px minmax(0, 1fr); align-items: center; column-gap: 14px; }
+.signup-card label { margin-bottom: 15px; }
+.signup-card input { margin-bottom: 15px; }
+.signup-card .form-error { grid-column: 1 / -1; }
+.signup-card .primary-button { grid-column: 2; }
+.form-error { margin: 0 0 14px; color: #b42318; font-size: 12px; line-height: 1.5; }
+.success-message { margin: 0; padding: 12px 20px; text-align: center; background: #eef8ee; color: #226b2b; font: 13px Arial, sans-serif; }
+@media (max-width: 560px) {
+  .p4-navigation { padding: 6px 8px; }
+  .p4-navigation .search-wrap { margin-left: 8px; }
+  .p4-navigation .nav-placeholder, .p4-navigation .nav-login { padding: 7px 8px; }
+  .auth-page { padding: 28px 14px 40px; }
+  .auth-card { padding: 22px 20px; }
+  .signup-card form { grid-template-columns: 1fr; gap: 0; }
+  .signup-card label { margin-bottom: 6px; }
+  .signup-card input { margin-bottom: 14px; }
+  .signup-card .primary-button { grid-column: 1; }
+}
